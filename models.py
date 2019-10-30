@@ -1,4 +1,4 @@
-from DynamicalSystemLayer import*
+import torch.nn as nn
 from VaeNeuralODELayer import*
 
 class EncoderFC(nn.Module):
