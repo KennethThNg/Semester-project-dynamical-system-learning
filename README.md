@@ -5,3 +5,4 @@ This project conssits of learning a dynamical systems. The project is composed o
 - ``DynamicalSystemLayer.py``: contains the building of the dynamical system layers.
 - ``VaeNeuralODELayer.py``: contains the different structure of the VaeNeuralODE.
 - ``utiils.py`` : contains training process
+- ``models.py`` : containts models build with the build layers 
