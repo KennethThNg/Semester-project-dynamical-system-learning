@@ -1,15 +1,12 @@
 import torch
 
-def batch_sampling(obs, times, t_max, batch_size = 100, delta=50):
-    obs_ = torch.zeros((batch_size, delta, obs.shape[1], obs.shape[2]))
-    ts_ = torch.zeros((batch_size, delta, times.shape[1], times.shape[2]))
-
-    for b in range(batch_size):
-        t0 = np.random.uniform(0, float(t_max))
-        t1 = float(t0) + delta
-        idx = np.arange(t0,t1)
-        if len(idx) == delta:
-            obs_[b,:,:] = obs[idx]
-            ts_[b,:,:] = times[idx]
-
-    return obs_, ts_
+def train_model(model, train_x, train_y, loss_fn, optimizer, batch_size):
+    train_loss = 0
+    for b in range(0, train_x.size(0), batch_size):
+        model.zero_grad()
+        pred = model(train_x.narrow(0, b, batch_size))
+        loss = loss_fn(pred, train_y.narrow(0, b, batch_size))
+        train_loss += loss.item()
+        loss.backward()
+        optimizer.step()
+    return train_loss
