@@ -60,15 +60,17 @@ class LinearODEModel(nn.Module):
     
     
 class NNODEModel(nn.Module):
-    def __init__(self, in_dim, hid_dim, out_dim):
+    def __init__(self, in_dim, hid_dim, out_dim, bias=False):
         super(NNODEModel, self).__init__()
         #Dimension
         self.in_dim = in_dim
         self.hid_dim = hid_dim
         self.out_dim = out_dim
         
+        self.bias = bias
+        
         #Layer 
-        self.lin_ode = LinearODELayer(self.in_dim, self.out_dim)
+        self.lin_ode = LinearODELayer(self.in_dim, self.out_dim, self.bias)
         self.nl_ode = NonLinearODELayer(self.in_dim, self.hid_dim, self.out_dim)
         
         #weight init
