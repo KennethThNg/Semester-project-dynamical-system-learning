@@ -75,6 +75,8 @@ class NNODEModel(nn.Module):
         
         #weight init
         self.lin_ode.weight.data.uniform_(-0.1,0.1)
+        if self.bias:
+            self.lin_ode.bias.data.uniform_(-0.1,0.1)
         self.nl_ode.weight.data.uniform_(-0.001,0.001)
             
         
