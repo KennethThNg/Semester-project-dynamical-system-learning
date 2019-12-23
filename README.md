@@ -5,3 +5,8 @@ This the semester project accomplish during the period of fall 2019. The topic o
 Pytorch version 1.1.0
 
 Pandas version 0.25.3
+
+## Run the codes
+There are three files for the code running:
+- ``run.py``: Train the models on different dynamical systems and times series (take ``model_name=pend`` or ``model_name=lorenz``).
+- ``sim.py``: Proceed into an amount of simulation of the model on the generated data with gaussian noise and save the different features in a ``.csv`` -files.
