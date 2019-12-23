@@ -3,4 +3,5 @@ This the semester project accomplish during the period of fall 2019. The topic o
 
 ## Libraries
 Pytorch version 1.1.0
+
 Pandas version 0.25.3
