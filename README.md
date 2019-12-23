@@ -54,6 +54,8 @@ The content of this project is composed of the following parts:
    
    -**``sim.py``**: contains the procedure that generate the CSV-file containing the features from the simulations.
    
+   -**``analysis.ipynb``**: contains the boxplots and the analysis of the model with noisy data.
+   
 - The folder ``gen_data`` contains:
 
     - ``ode_df_Nsamp.csv``: CSV-files containing the results from the simulation of the model on system ``ode`` which is the pendulum or the lorenz attractor with sample size ``Nsamp``.
