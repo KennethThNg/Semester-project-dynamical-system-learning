@@ -1,9 +1,6 @@
 # Semester-project-dynamical-system-learning
-This project conssits of learning a dynamical systems. The project is composed of the following folder:
+This the semester project accomplish during the period of fall 2019. The topic of the project consists into buiding a layer of neural network for times series forecasting. We test if the model can learn exsting dynamical systems, then we analyze its behaviour with respect to noise.
 
-- ``VaeNeuralODE.ipynb``: contains the progression of the project.
-- ``DynamicalSystemLayer.py``: contains the building of the dynamical system layers.
-- ``VaeNeuralODELayer.py``: contains the different structure of the VaeNeuralODE.
-- ``utiils.py`` : contains training process
-- ``models.py`` : containts models build with the build layers 
-- ``simple_pendulum.ipynb``: contains test for pendulum data
+## Libraries
+Pytorch version 1.1.0
+Pandas version 0.25.3
