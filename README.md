@@ -57,3 +57,6 @@ The content of this project is composed of the following parts:
 - The folder ``gen_data`` contains:
 
     - ``ode_df_Nsamp.csv``: CSV-files containing the results from the simulation of the model on system ``ode`` which is the pendulum or the lorenz attractor with sample size ``Nsamp``.
+
+- The folder ``report`` contains:
+    - ``report.pdf``: report in PDF format.
