@@ -49,6 +49,10 @@ The content of this project is composed of the following parts:
    -**``grid_search.py``**:
      - ``grid_search``: computes 40 simulation of the model and save the results according to selected parameters.
      - ``boxplot_feature``: plot features of a dataframe into a boxplot.
+     
+   -**``run_pendulum.py``**: run the model with pendulum.
+   
+   -**``run_lorenz.py``**: run the model with lorenz attractor.
 
    -**``run.py``**: contains the procedure to train the model.
    
