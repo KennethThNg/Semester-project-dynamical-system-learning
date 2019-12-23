@@ -52,4 +52,7 @@ The content of this project is composed of the following parts:
 
    -**``run.py``**: contains the procedure to train the model.
    
-   -**``sim.py``**: 
+   -**``sim.py``**: contains the procedure that generate the CSV-file containing the features from the simulations.
+   
+- The folder ``gen_data`` contains:
+      - ``ode_df_Nsamp.csv``: CSV-files containing the results from the simulation of the model on system ``ode`` which is the pendulum or the lorenz attractor with sample size ``Nsamp``.
