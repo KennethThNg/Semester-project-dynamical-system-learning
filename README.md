@@ -8,8 +8,8 @@ Pandas version 0.25.3
 
 ## Run the codes
 There are three files for the code running:
-- ``run.py``: Train the models on different dynamical systems and times series (take ``model_name=pend`` or ``model_name=lorenz``).
-- ``sim.py``: Proceed into an amount of simulation of the model on the generated data with gaussian noise and save the different features in a ``.csv`` -files.
+- ``run.py``: Train the models on different dynamical systems and times series (take ``model_name=pend`` or ``model_name=lorenz``). Then Execute the command ``python path_files/run.py``.
+- ``sim.py``: Proceed into an amount of simulation of the model on the generated data with gaussian noise and save the different features in a ``.csv`` -files. Execute the command ``python path_files/run.py``.
 
 ## File description
 The content of this project is composed of the following parts:
@@ -49,3 +49,7 @@ The content of this project is composed of the following parts:
    -**``grid_search.py``**:
      - ``grid_search``: computes 40 simulation of the model and save the results according to selected parameters.
      - ``boxplot_feature``: plot features of a dataframe into a boxplot.
+
+   -**``run.py``**: contains the procedure to train the model.
+   
+   -**``sim.py``**: 
