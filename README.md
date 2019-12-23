@@ -16,6 +16,7 @@ The content of this project is composed of the following parts:
 
 - The folder ``Semester-project-dynamical-system-learning`` that contains several py-files and one ipynb-file:
       
-   -``**utils.py**``:
-                - ``generate_pendumlum`` : generate the dynamical systems describing the pendulum motion.
-                - ``generate_lorenz`` : generate the dynamical system describing the lorenz attractor.
+   -**``utils.py``**:
+   
+    - ``generate_pendumlum`` : generate the dynamical systems describing the pendulum motion.
+    - ``generate_lorenz`` : generate the dynamical system describing the lorenz attractor.
