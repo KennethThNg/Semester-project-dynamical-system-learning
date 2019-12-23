@@ -45,3 +45,7 @@ The content of this project is composed of the following parts:
      
      - ``__init__``: constructs the class.
      - ``forward``: computes the predicted time series.
+    
+   -**``grid_search.py``**:
+     - ``grid_search``: computes 40 simulation of the model and save the results according to selected parameters.
+     - ``boxplot_feature``: plot features of a dataframe into a boxplot.
