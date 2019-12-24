@@ -7,18 +7,11 @@ import matplotlib.pyplot as plt
 
 print('generate pendulum data')
 
-kk = 0.01
-AA = np.asarray([[1,1],[-kk,1]])
-
+k = 0.01
 sol = [[0.99,1]]
-for i in range(100):
-    sol.append(np.dot(np.asarray(sol[-1]),AA))
-
-X = np.asarray(sol)[:-1]
-Y = np.asarray(sol)[1:]
-train_x = torch.FloatTensor(X)
-train_y = torch.FloatTensor(Y)
-
+dt = 1
+T = 100
+train_x, train_y, H = generate_pendulum(k, sol, dt, T)
 print('train_x.shape:', train_x.shape)#train_input
 print('train_y.shape:', train_y.shape)#train_output
 
@@ -63,7 +56,7 @@ else:
     raise ValueError('Unknown model')
 
 print('Real weigths of the matrix:')
-print(AA)
+print(H)
 print('Initial weigths of the matrix:')
 print(list(model.parameters()))
 
