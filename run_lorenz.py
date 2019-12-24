@@ -15,10 +15,11 @@ sigma = 10
 rho = 30
 beta = 8/3
 dt = 0.01
+T = 10000
 
 sol = [[x, y, z]]
 
-train_x, train_y, H, B = generate_lorenz(sigma, rho, beta, sol)
+train_x, train_y, H, B = generate_lorenz(sigma, rho, beta, sol, dt, T)
 print('Parameter:')
 print(H)
 print(B)
