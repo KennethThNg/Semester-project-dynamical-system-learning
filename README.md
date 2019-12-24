@@ -8,7 +8,7 @@ Pandas version 0.25.3
 
 ## Run the codes
 There are three files for the code running:
-- ``run_modek_name.py``: Train the models on different dynamical systems and times series (take ``model_name=pendulum`` or ``model_name=lorenz``). Then Execute the command ``python path_files/run.py``.
+- ``run_model_name.py``: Train the models on different dynamical systems and times series (take ``model_name=pendulum`` or ``model_name=lorenz``). Then Execute the command ``python path_files/run.py``.
 - ``sim.py``: Proceed into an amount of simulation of the model on the generated data with gaussian noise and save the different features in a ``.csv`` -files. Execute the command ``python path_files/run.py``.
 
 ## File description
