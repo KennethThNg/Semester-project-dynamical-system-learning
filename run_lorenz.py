@@ -65,7 +65,7 @@ print(list(model.parameters()))
 
 plt.figure(2)
 plt.plot(train_losses)
-plt.title('Train loss')
+plt.title('Train loss of Lorenz')
 
 plt.figure(3)
 fig = plt.figure(figsize=(20,10))
@@ -75,6 +75,6 @@ ax.plot(prediction[:,0].detach().numpy(), prediction[:,1].detach().numpy(), pred
 ax.set_xlabel('X-axis')
 ax.set_ylabel('Y-axis')
 ax.set_zlabel('Z-axis')
-ax.title('Prediction')
+ax.title('Prediction of Lorenz')
 ax.legend()
 plt.show()

@@ -77,7 +77,7 @@ plt.title('Train loss of pendulum')
 plt.figure(3)
 plt.plot(train_y[0:T,0].numpy(), label='Ground truth')
 plt.plot(prediction[0:T,0].detach().numpy(), label='Prediction')
-plt.title('Prediction')
+plt.title('Prediction of Pendulum')
 plt.legend()
 
 plt.show()
