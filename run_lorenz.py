@@ -33,6 +33,7 @@ ax.plot(train_x[:,0].numpy(), train_x[:,1].numpy(), train_x[:,2].numpy())
 ax.set_xlabel('X-axis')
 ax.set_ylabel('Y-axis')
 ax.set_zlabel('Z-axis')
+ax.title('Lorenz attractor')
 
 model_name = 'non_linear'
 if model_name == 'non_linear':
@@ -64,6 +65,7 @@ print(list(model.parameters()))
 
 plt.figure(2)
 plt.plot(train_losses)
+plt.title('Train loss')
 
 plt.figure(3)
 fig = plt.figure(figsize=(20,10))
@@ -73,5 +75,6 @@ ax.plot(prediction[:,0].detach().numpy(), prediction[:,1].detach().numpy(), pred
 ax.set_xlabel('X-axis')
 ax.set_ylabel('Y-axis')
 ax.set_zlabel('Z-axis')
+ax.title('Prediction')
 ax.legend()
 plt.show()
