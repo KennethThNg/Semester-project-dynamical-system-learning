@@ -18,6 +18,7 @@ print('train_y.shape:', train_y.shape)#train_output
 plt.figure(1)
 plt.plot(train_x[:,0].numpy());
 plt.plot(train_y[:,0].numpy())
+plt.title('Pendulum')
 
 model_name = 'simple_pendulum'
 
@@ -70,11 +71,13 @@ for epoch in range(n_epoch):  # number of epochs
 print('Final weigths of the matrix:')
 print(list(model.parameters()))
 plt.figure(2)
-plt.plot(train_losses)
+plt.plot(train_losses, label='train loss')
+plt.title('Train loss of pendulum')
 
 plt.figure(3)
 plt.plot(train_y[0:T,0].numpy(), label='Ground truth')
 plt.plot(prediction[0:T,0].detach().numpy(), label='Prediction')
+plt.title('Prediction')
 plt.legend()
 
 plt.show()
