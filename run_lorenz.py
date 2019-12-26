@@ -60,6 +60,9 @@ for epoch in range(n_epoch):  # number of epochs
     train_loss, prediction = train_model(model, train_x, train_y, loss_fn, optimizer, batch_size=bs)
     train_losses.append(train_loss)
 
+if bs < train_x.size(0):
+    prediction = model(train_x)
+
 print('Final weigths of the matrix:')
 print(list(model.parameters()))
 
