@@ -20,7 +20,7 @@ plt.plot(train_x[:,0].numpy());
 plt.plot(train_y[:,0].numpy())
 plt.title('Pendulum')
 
-model_name = 'simple_pendulum'
+model_name = input('select model to train (simple_pendulum, pendulum_bias, pendulum_batch_10, non_lin_pendulum): ')
 
 if model_name == 'simple_pendulum':
     print('training pendulum with simple linear model:')
@@ -72,12 +72,14 @@ print('Final weigths of the matrix:')
 print(list(model.parameters()))
 plt.figure(2)
 plt.plot(train_losses, label='train loss')
-plt.title('Train loss of pendulum')
+plt.title('Train loss of ' + model_name + ' model')
 
 plt.figure(3)
 plt.plot(train_y[0:T,0].numpy(), label='Ground truth')
 plt.plot(prediction[0:T,0].detach().numpy(), label='Prediction')
-plt.title('Prediction of Pendulum')
+plt.title('Prediction of ' + model_name + ' model' )
 plt.legend()
 
 plt.show()
+
+del model_name
