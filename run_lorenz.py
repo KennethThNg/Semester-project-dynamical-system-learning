@@ -33,7 +33,7 @@ ax.plot(train_x[:,0].numpy(), train_x[:,1].numpy(), train_x[:,2].numpy())
 ax.set_xlabel('X-axis')
 ax.set_ylabel('Y-axis')
 ax.set_zlabel('Z-axis')
-ax.title('Lorenz attractor')
+ax.set_title('Lorenz attractor')
 
 model_name = input('select model to train (non_linear, non_linear_bias): ')
 if model_name == 'non_linear':
@@ -55,6 +55,7 @@ print('Initial weigths of the matrix:')
 print(list(model.parameters()))
 n_epoch = 10000
 train_losses = []
+epochs = np.arange(1, n_epoch)
 
 for epoch in range(n_epoch):  # number of epochs
     train_loss, prediction = train_model(model, train_x, train_y, loss_fn, optimizer, batch_size=bs)
@@ -67,7 +68,9 @@ print('Final weigths of the matrix:')
 print(list(model.parameters()))
 
 plt.figure(2)
-plt.plot(train_losses)
+plt.plot(xs=epochs, ys=train_losses, label='train loss')
+plt.xlable('epoch')
+plt.ylabel('Error')
 plt.title('Train loss of ' + model_name + ' model for Lorenz')
 
 plt.figure(3)
@@ -78,6 +81,6 @@ ax.plot(prediction[:,0].detach().numpy(), prediction[:,1].detach().numpy(), pred
 ax.set_xlabel('X-axis')
 ax.set_ylabel('Y-axis')
 ax.set_zlabel('Z-axis')
-ax.title('Prediction of  ' + model_name + 'model for Lorenz')
+ax.set_title('Prediction of  ' + model_name + 'model for Lorenz')
 ax.legend()
 plt.show()

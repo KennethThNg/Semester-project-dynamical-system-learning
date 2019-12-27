@@ -18,6 +18,8 @@ print('train_y.shape:', train_y.shape)#train_output
 plt.figure(1)
 plt.plot(train_x[:,0].numpy());
 plt.plot(train_y[:,0].numpy())
+plt.xlabel('time')
+plt.ylabel('Pendulum data')
 plt.title('Pendulum')
 
 model_name = input('select model to train (simple_pendulum, pendulum_bias, pendulum_batch_10, non_lin_pendulum): ')
@@ -74,11 +76,15 @@ print('Final weigths of the matrix:')
 print(list(model.parameters()))
 plt.figure(2)
 plt.plot(train_losses, label='train loss')
+plt.xlabel('epoch')
+plt.ylabel('Error')
 plt.title('Train loss of ' + model_name + ' model')
 
 plt.figure(3)
 plt.plot(train_y[0:T,0].numpy(), label='Ground truth')
 plt.plot(prediction[0:T,0].detach().numpy(), label='Prediction')
+plt.xlabel('times')
+plt.ylabel('prediction')
 plt.title('Prediction of ' + model_name + ' model' )
 plt.legend()
 
