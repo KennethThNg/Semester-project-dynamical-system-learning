@@ -46,7 +46,11 @@ def grid_search(model, train_x, train_y, T, z_dim, H, B, n_sim=40, noise=[0.,0.1
     print('end simulation')
     return results
 
-def boxplot_feature(data, fixed_feat1, val_feat1, fixed_feat2, val_feat2, feat_x, feat_y='min_loss'):
+def boxplot_feature(data, fixed_feat1, val_feat1, fixed_feat2, val_feat2, feat_x, feat_y='min_loss', save_fig=False,
+                    name='pend_box', data_name='pendulum'):
     data_feat = data[(data[fixed_feat1] == val_feat1)&(data[fixed_feat2] == val_feat2)]
     plt.figure(figsize=(20,10))
     ax = sns.boxplot(x=feat_x, y=feat_y, data=data_feat)
+    plt.title(data_name + 'boxplot')
+    if save_fig:
+        plt.savefig('../figure/boxplot'+ name + '.png')
