@@ -5,7 +5,7 @@ import pandas as pd
 from grid_search import *
 from models import *
 
-data_name = 'pendulum'
+data_name = input('select a the dynamical system to simulate (pendulum/lorenz): ')
 
 if data_name == 'pendulum':
     print('generate pendulum data')
