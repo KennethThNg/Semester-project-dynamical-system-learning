@@ -26,15 +26,6 @@ print(B)
 print('train_x size:', train_x.size())
 print('train_y size:', train_y.size())
 
-plt.figure(1)
-fig = plt.figure(figsize=(20,10))
-ax = fig.gca(projection='3d')
-ax.plot(train_x[:,0].numpy(), train_x[:,1].numpy(), train_x[:,2].numpy())
-ax.set_xlabel('X-axis')
-ax.set_ylabel('Y-axis')
-ax.set_zlabel('Z-axis')
-ax.set_title('Lorenz attractor')
-
 model_name = input('select model to train (non_linear, non_linear_bias): ')
 if model_name == 'non_linear':
     print('training lorenz with simple non-linear model')
@@ -55,7 +46,7 @@ print('Initial weigths of the matrix:')
 print(list(model.parameters()))
 n_epoch = 10000
 train_losses = []
-epochs = np.arange(1, n_epoch)
+epochs = np.arange(1,n_epoch+1)
 
 for epoch in range(n_epoch):  # number of epochs
     train_loss, prediction = train_model(model, train_x, train_y, loss_fn, optimizer, batch_size=bs)
@@ -67,11 +58,25 @@ if bs < train_x.size(0):
 print('Final weigths of the matrix:')
 print(list(model.parameters()))
 
+loss_curve = np.array(train_losses)
+print(loss_curve.shape)
+print(epochs.shape)
+plt.figure(1)
+fig = plt.figure()
+ax = fig.gca()
+ax.plot(epochs, loss_curve)
+ax.set_xlabel('epoch')
+ax.set_ylabel('Error')
+ax.set_title('Train loss of ' + model_name + ' model for Lorenz')
+
 plt.figure(2)
-plt.plot(xs=epochs, ys=train_losses, label='train loss')
-plt.xlable('epoch')
-plt.ylabel('Error')
-plt.title('Train loss of ' + model_name + ' model for Lorenz')
+fig = plt.figure(figsize=(20,10))
+ax = fig.gca(projection='3d')
+ax.plot(train_x[:,0].numpy(), train_x[:,1].numpy(), train_x[:,2].numpy())
+ax.set_xlabel('X-axis')
+ax.set_ylabel('Y-axis')
+ax.set_zlabel('Z-axis')
+ax.set_title('Lorenz attractor')
 
 plt.figure(3)
 fig = plt.figure(figsize=(20,10))
