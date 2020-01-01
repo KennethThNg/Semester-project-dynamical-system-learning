@@ -3,6 +3,12 @@ from DynamicalSystemLayer import *
 
 class LinearODEModel(nn.Module):
     def __init__(self, in_feature, out_feature, bias=False):
+        '''
+        Build a neural net containing the linear dynamical system layer
+        :param in_feature (int): input dimension
+        :param out_feature (int): output dimension
+        :param bias (bool): determine if bias is needed in the model
+        '''
         super(LinearODEModel, self).__init__()
         self.in_feature = in_feature
         self.out_feature = out_feature
@@ -10,12 +16,26 @@ class LinearODEModel(nn.Module):
         self.ode = LinearODELayer(self.in_feature, self.out_feature, self.bias)
 
     def forward(self, x):
+        '''
+        Forward pass
+        :param x (torch.Tensor): input data. Tensor of dimension [batch size, in_feature]
+        :return:
+        out (torch.Tensor): output feature. Tensor of dimension [batch size, out_feature]
+        '''
         out = self.ode(x)
         return out
 
 
+
 class NNODEModel(nn.Module):
     def __init__(self, in_dim, hid_dim, out_dim, bias=False):
+        '''
+        Build a neural net containing the linear dynamical system layer and the non-linear dynamical system layer
+        :param in_dim (int): Input dimension
+        :param hid_dim (int): Hidden dimension
+        :param out_dim (int): Output dimension
+        :param bias (bool): determine if bias is needed in the model
+        '''
         super(NNODEModel, self).__init__()
         #Dimension
         self.in_dim = in_dim
@@ -36,6 +56,12 @@ class NNODEModel(nn.Module):
 
 
     def forward(self, x):
+        '''
+        Forward Pass
+        :param x (torch.Tensor): input data. Tensor of dimension [batch size, in_feature]
+        :return:
+        out (torch.Tensor): output feature. Tensor of dimension [batch size, out_feature]
+        '''
         out = self.lin_ode(x) + self.nl_ode(x)
         return out
 
