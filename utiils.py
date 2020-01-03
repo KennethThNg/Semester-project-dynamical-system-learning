@@ -124,6 +124,32 @@ def train_model(model, train_x, train_y, loss_fn, optimizer, batch_size):
         optimizer.step()
     return train_loss, pred
 
+def test_model(model, test_x, test_y, loss_fn, batch_size=1):
+    '''
+    Test and validate the model
+    :param model (nn.Module): neural net to validate
+    :param test_x (torch.Tensor): test input
+    :param test_y (torch.Tensor): test target
+    :param loss_fn (nn.Module): loss function
+    :param batch_size (int): amount of data in the selected batch
+    :return:
+    test_loss (float): test loss of the model
+    pred (torch.Tensor): prediction of the model after training
+    '''
+    #init test loss
+    test_loss = 0
+
+    #unable backward
+    with torch.no_grad():
+        for b in range(0, test_x.size(0), batch_size):
+            #Forward
+            pred = model(test_x.narrow(0, b, batch_size))
+            loss = loss_fn(pred, test_y.narrow(0, b, batch_size))
+
+            #Store loss
+            test_loss += loss.item()
+        return test_loss, pred
+
 def training_session(model, train_x, train_y, lr=1e-2, n_print=10, n_epoch=100, batch_size=1, print_mat=False, print_feat=False):
     '''
     train the model and return the training loss and the final weights and plot the results.
