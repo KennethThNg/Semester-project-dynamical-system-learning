@@ -23,7 +23,9 @@ The content of this project is composed of the following parts:
     - ``tensor_norm`` : computes the tensor norm.
     - ``train_model``: computes the training loss of the model.
     - ``training_session``: computes the training loss and the optimal weights.
-    - ``prediction`` : computes the predicted time series with the weights obtained after training.
+    - ``test_model``: computes the test loss of the model
+    - ``create_matrix_time``: creates a tensor of multiple time series.
+
     
    -**``DynanicalSystemLayer.py``**:
    
@@ -40,6 +42,7 @@ The content of this project is composed of the following parts:
      
      - ``Class LinearODEModel`` : Linear ode model build with linear ode layer.
      - ``Class NNODEModel``: Quadratic ode model build with linear ode layer and non linear layer.
+     - ``Class NeuralNet``: neural network containing two fully connected layers and the class ``NNODEMODEL``.
      
      Each class contains two methods:
      
