@@ -72,6 +72,19 @@ def generate_lorenz(sigma, rho, beta, sol, dt=0.01, T=10000, dim=3):
 
     return train_x, train_y, torch.Tensor(AA), torch.Tensor(B)
 
+def create_matrix_time(tensor, N):
+    '''
+    Create multiple time series of length N from one time serie.
+    :param tensor (torch.Tensor): tensor of shape [time length, 1]
+    :param N (int): time length of each time series
+    :return:
+    new_tensor (torch.Tensor): tensor containing all time series of length N.
+    '''
+    new_tensor = torch.zeros(N, tensor.size(0) - N + 1)
+    for k in range(new_tensor.size(1)):
+        new_tensor[:,k] = tensor[k:(k + N)].squeeze()
+    return new_tensor
+
 #----------------------------------------------
 ## TENSOR NORM
 
@@ -88,6 +101,19 @@ def tensor_norm(tensor):
 
 #----------------------------------------------
 ## TRAINING THE MODEL
+def train_test_split(feature, ratio=0.8):
+    '''
+    Split the dataset into training and train set and test set
+    :param feature (numpy.array): dataset of shape [time length, dimension]
+    :param ratio (int): split ratio
+    :return:
+    train_set (numpy.array): training set of shape [train_size, dimension]
+    test_set (numpy.array): test set of shape [test_size, dimension]
+    '''
+    train_size = int(len(feature)*ratio)
+    train_set = feature[:train_size]
+    test_set = feature[train_size:]
+    return train_set, test_set
 
 def train_model(model, train_x, train_y, loss_fn, optimizer, batch_size):
     '''
