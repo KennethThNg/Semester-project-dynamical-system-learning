@@ -25,6 +25,9 @@ The content of this project is composed of the following parts:
     - ``training_session``: computes the training loss and the optimal weights.
     - ``test_model``: computes the test loss of the model
     - ``create_matrix_time``: creates a tensor of multiple time series.
+    - ``train_test_split`` : split the dataset into a train set and a test set.
+    - ``input_target_split``: split the dataset into an input set and a target set.
+    - ``run_session``: train the model.
 
     
    -**``DynanicalSystemLayer.py``**:
@@ -42,7 +45,8 @@ The content of this project is composed of the following parts:
      
      - ``Class LinearODEModel`` : Linear ode model build with linear ode layer.
      - ``Class NNODEModel``: Quadratic ode model build with linear ode layer and non linear layer.
-     - ``Class NeuralNet``: neural network containing two fully connected layers and the class ``NNODEMODEL``.
+     - ``Class NeuralNetODEModel``: neural network containing two fully connected layers and the class ``NNODEMODEL``.
+     - ``Class FullyLinearLayerModel``: neural network containing three connected layers.
      
      Each class contains two methods:
      
