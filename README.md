@@ -12,9 +12,9 @@ There are three files for the code running:
 - ``sim.py``: Proceed into an amount of simulation of the model on the generated data with gaussian noise and save the different features in a ``.csv`` -files. Execute the command ``python path_files/run.py``.
 
 ## File description
-The content of this project is composed of the following parts:
+The content of this repository is composed of the following parts:
 
-- The folder ``Semester-project-dynamical-system-learning`` that contains several py-files and one ipynb-file:
+- Several py-files and two ipynb-file:
       
    -**``utils.py``**:
    
