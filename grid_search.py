@@ -86,7 +86,10 @@ def boxplot_feature(data, fixed_feat1, val_feat1, fixed_feat2, val_feat2, feat_x
     '''
     data_feat = data[(data[fixed_feat1] == val_feat1)&(data[fixed_feat2] == val_feat2)]
     plt.figure(figsize=(20,10))
+    sns.set(font_scale=4)
     ax = sns.boxplot(x=feat_x, y=feat_y, data=data_feat)
     plt.title(data_name + ' boxplot')
+    plt.xticks(fontsize=14)
+    plt.yticks(fontsize=14)
     if save_fig:
         plt.savefig('../figure/boxplot/' + name + '.png')

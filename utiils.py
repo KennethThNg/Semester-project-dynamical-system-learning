@@ -115,6 +115,45 @@ def train_test_split(feature, ratio=0.8):
     test_set = feature[train_size:]
     return train_set, test_set
 
+def input_target_split(feature, delta, N):
+    '''
+    Split the dataset into input and target set
+    :param feature (torch.Tensor): tensor to split of shape [time length, dimnension]
+    :param delta (int): gap between the target and the input
+    :param N (int): number of time series in the matrix
+    :return:
+    matrix_input (torch.Tensor) input set of shape [time length - delta +, N, dimnesion]
+    matrix_target (torch.Tensor) target set of shape [time length - delta +, N, dimnesion]
+    '''
+    input_ = torch.FloatTensor(feature[:-delta])
+    target = torch.FloatTensor(feature[delta:])
+    matrix_input = create_matrix_time(input_, N).permute(1,0)
+    matrix_target = create_matrix_time(target, N).permute(1,0)
+    return matrix_input, matrix_target
+
+def run_session(model, optimizer, train_x, train_y, test_x, test_y, n_epoch=1000, batch=10):
+    '''
+    Train the model by updating its weights paraemters
+    :param model (nn.Module): model to train
+    :param optimizer (nn.Optimizer): optimizer use to update the model
+    :param train_x (torch.Tensor): train input of shape [number time series, time legnth]
+    :param train_y (torch.Tensor): train target of shape [number of time series, time length]
+    :param test_x (torch.Tensor) : test input of shape [number time series, time legnth]
+    :param test_y (torch.Tensor): test target of shape [number time series, time legnth]
+    :param n_epoch (int): number of epochs
+    :param batch (int): number of sample per batch
+    :return:
+    model trained with optimal weights
+    '''
+    loss_fn = nn.MSELoss()
+    for epoch in range(n_epoch):
+        model.train()
+        train_loss,_ = train_model(model, train_x, train_y, loss_fn, optimizer, batch_size=batch)
+        model.eval()
+        test_loss,_ = test_model(model, test_x, test_y, loss_fn, batch_size=batch)
+        if epoch%10 == 0:
+            print('Epoch:', epoch+1, ', train_loss:', train_loss, ', test_loss:', test_loss)
+
 def train_model(model, train_x, train_y, loss_fn, optimizer, batch_size):
     '''
     Train the model and compute the training loss and the prediction of the model
