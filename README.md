@@ -64,7 +64,7 @@ The content of this project is composed of the following parts:
    -**``sim.py``**: contains the procedure that generate the CSV-file containing the features from the simulations.
    
    -**``ode_demo.ipynb``**: contains the boxplots and the analysis of the model with noisy data.
-   -**``times_series_forecast.ipynb``**: contains the training of the model on new times series.
+   -**``times_series_forecast.ipynb``**: contains the training of the model on new times series and the benchmark of the model.
    
 - The folder ``gen_data`` contains:
 
