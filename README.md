@@ -66,9 +66,3 @@ The content of this project is composed of the following parts:
    -**``ode_demo.ipynb``**: contains the boxplots and the analysis of the model with noisy data.
    -**``times_series_forecast.ipynb``**: contains the training of the model on new times series and the benchmark of the model.
    
-- The folder ``gen_data`` contains:
-
-    - ``ode_df_Nsamp.csv``: CSV-files containing the results from the simulation of the model on system ``ode`` which is the pendulum or the lorenz attractor with sample size ``Nsamp``.
-
-- The folder ``report`` contains:
-    - ``report.pdf``: report in PDF format.
